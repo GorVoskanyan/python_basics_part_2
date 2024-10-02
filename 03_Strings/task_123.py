@@ -14,26 +14,33 @@
 vowels = 'aeiuo'
 symbols = '.,!?'
 
-words_list = input('>>> ').split()
-result = []
+is_upper = False
+word = input('>>> ')
+if word[0].isupper():
+    is_upper = True
 
-for word in words_list:
-    if word[0].lower() in vowels:
-        if word[-1] in symbols:
-            result.append(word[:-1] + 'way' + word[-1])
-        else:
-            result.append(word + 'way')
-        continue
+symbol = '' if word[-1] not in symbols else word[-1]    # ternary operator
+word = word.lower()
 
-    for index in range(len(word)):
-        if word[index] in vowels:
-            if word[-1] not in symbols:
-                word = f"{word[index:].capitalize() if word[0].isupper() else word[index:].lower()}{word[:index]}ay"
-                result.append(word)
+changed_word = ''
+
+if word[0] not in vowels:
+    for i in range(len(word)):
+        if word[i] in vowels:
+            if symbol:
+                changed_word += word[i:-1] + word[:i] + 'ay'
             else:
-                word = f"{word[index:-1].capitalize() if word[0].isupper() else word[index:-1]}{word[:index].lower()}ay{word[-1]}"
-                result.append(word)
+                changed_word += word[i:] + word[:i] + 'ay'
             break
+    changed_word += symbol
+else:
+    if symbol:
+        changed_word += word[:-1] + 'way' + symbol
+    else:
+        changed_word += word + 'way'
 
-result = ' '.join(result)
-print(result)
+if is_upper:
+    changed_word = changed_word.capitalize()
+
+print(changed_word)
+
