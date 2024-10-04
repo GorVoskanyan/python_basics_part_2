@@ -7,9 +7,10 @@
 #  на знаки препинания, заглавные буквы и пробелы
 
 
-s = '!@#$%^&*()_+"" '
 
 def are_anagrams(text_1, text_2):
+    text_1 = ''.join([char for char in text_1 if char.isalpha()])
+    text_2 = ''.join([char for char in text_2 if char.isalpha()])
     return sorted(text_1.lower()) ==sorted(text_2.lower())
 
 

@@ -7,10 +7,8 @@ morse = {
     '4': '...._', '5': '.....', '6': '_....', '7': '__...', '8': '___..',
     '9': '____.', '0': '_____'
     }
-text = input()
-TEXT = text.upper()
-l = list(TEXT)
-for i in l:
-    print(morse[i], end = ' ')
 
 
+text = input('>>> ').upper()
+for char in text:
+    print(morse[char], end = ' ')

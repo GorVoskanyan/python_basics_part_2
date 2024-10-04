@@ -12,29 +12,27 @@ World! ваша программа должна откликнуться сле�
 как точка с запятой или скобки
 """
 
-telephone = {'1': '1', '.': '1', ',': '11', '?': '111', '!': '1111', ':': '11111',
-             'A': '2', 'B': '22', 'C': '222',
-             'D': '3', 'E': '33', 'F': '333',
-             'G': '4', 'H': '44', 'I': '444',
-             'J': '5', 'K': '55', 'L': '555',
-             'M': '6', 'N': '66', 'O': '666',
-             'P': '7', 'Q': '77', 'R': '777', 'S': '7777',
-             'T': '8', 'U': '88', 'V': '888',
-             'W': '9', 'X': '99', 'Y': '999', 'Z': '9999',
-             '': '0' }
+telephone = {
+    '1': '.,?!:',
+    '2': 'ABC',
+    '3': 'DEF',
+    '4': 'GHI',
+    '5': 'JKL',
+    '6': 'MNO',
+    '7': 'PQRS',
+    '8': 'TUV',
+    '9': 'WXYZ',
+    '0': ' '
+}
 
-user_word = input('>>> :')
-user_word = user_word.upper()
-word_collection=[]
-for i in range(len(user_word)):
-   word_collection.append(user_word[i])
-print(word_collection)
+user_word = input('>>> :').upper()
+code = ''
 
+for char in user_word:
+    for key, value in telephone.items():
+        if char in value:
+            char_quantity = value.index(char) + 1
+            code += char_quantity * key
 
-result=[]
-for x in word_collection :
-    if x in telephone:
-        result.append(telephone[x])
-
-print(result)
+print(code)
 

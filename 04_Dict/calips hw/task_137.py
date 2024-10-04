@@ -12,15 +12,30 @@
 результатом согласно теории вероятностей.
 """
 import  random
+
 def sum_rock():
-    return random.randint(1,6)+ random.randint (1,6)
+    return random.randint(1,6) + random.randint (1,6)
 
-rock_dict={}
-for i in range(1000):
-    rock_dict={i: sum_rock()}
-    i+=1
 
-print(rock_dict)
+def main():
+    data = dict()
 
+    for _ in range(1000):
+        dices_sum = sum_rock()
+        if dices_sum not in data:
+            data[dices_sum] = 1
+        else:
+            data[dices_sum] += 1
+
+    experiment_data = {key: value / 1000 * 100 for key, value in data.items()}
+    expected_data = {2: 2.78, 3: 5.56, 4: 8.33, 5: 11.11, 6: 13.89, 7: 16.67, 8: 13.89, 9: 11.11, 10: 8.33, 11: 5.56, 12: 2.78}
+
+    print(f"{'Исход'}\t{'Процент симуляции'}\t{'Ожидаемый процент'}")
+    for key, expected in zip(sorted(experiment_data), expected_data):
+        print(f"{key}\t\t{experiment_data[key]:.2f}\t\t\t\t{expected_data[expected]}")
+
+
+if __name__ == '__main__':
+    main()
 
 
