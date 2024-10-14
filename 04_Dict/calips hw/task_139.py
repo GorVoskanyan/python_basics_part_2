@@ -28,4 +28,4 @@ print(word_item)
 
 for e in symbol_dict:
     result.append(symbol_dict[e])
-print(result)
+print(result )
