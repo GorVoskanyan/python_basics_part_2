@@ -1,24 +1,15 @@
-"""
-В операционных системах на базе Unix обычно присутствует утилита с названием head.
- Она выводит первые десять строк содержимого файла, имя
-которого передается в качестве аргумента командной строки.
- Напишите программу на Python, имитирующую поведение этой утилиты. Если
-файла, указанного пользователем, не существует, или не задан аргумент
-командной строки, необходимо вывести соответствующее сообщение об
-ошибке.
-"""
-import sys
+class Car:
 
-def head(filename):
-    lines=10
-    try:
-        with open(filename, 'r') as file:
-            for i in range(lines):
-                line=file.readline()
-                if not line:
-                    break
-                print(line)
-    except FileNotFoundError:
+    def __init__(self, mark , year_of_creation, is_electronic):
+        self.mark =mark
+        self.yoc= year_of_creation
+        self.is_electronic = is_electronic
+
+    car1=Car('BMW',2015,False)
+    car2=Car(mark='Mercedes', year_of_creation=2000, id_electronic=True)
+    print(car1.mark)
+
+
 
 
 
