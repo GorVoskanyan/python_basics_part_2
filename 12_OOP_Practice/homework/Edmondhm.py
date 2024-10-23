@@ -50,18 +50,15 @@ class Human:
             else:
                 self.play()
 
-    def year(self):
-        for day in range(365):
-            if self.hunger_level <= 0:
-                print(f"{self.name} Game over!!")
-                return
-            self.daily_routine()
-        print(f"{self.name} live")
-
-
 human1 = Human("Jiro")
 human2 = Human("Edmond")
 
+def live_one_year(human):
+    for day in range(365):
+        if human.hunger_level <= 0:
+            print(f"{human.name} Game over!!")
+            return
+        human.daily_routine()
+    print(f"{human.name} live")
 
-human1.year()
-human2.year()
+live_one_year(human2)
