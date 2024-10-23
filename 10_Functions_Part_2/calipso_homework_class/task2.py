@@ -1,24 +1,25 @@
-class Parent:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-        self.children = []
+class Water:
+    def __add__(self, other):
+      if isinstance(other,Grow):
+          return Dirt()
+class Air:
+    def __add__(self,other):
+        if isinstance(other,Fire):
+            return Lightning()
+        elif isinstance(other, Grow):
+            return Dust()
 
-    def provide_info(self):
-
-
-
-class Child:
-    def __init__(self, name, age,calm_state, hunger_state):
-        self.name = name
-        self.age = age
-        self.calm_state = calm_state
-        self.hunger_state = hunger_state
-
-        calm_state= False
-        hunger_state=True
-
-
+class Fire:
+    pass
+class Grow:
+    pass
+class Dirt:
+    pass
+class Lightning:
+    pass
+class Dust:
+    pass
+git
 
 
 
