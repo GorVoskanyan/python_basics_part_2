@@ -11,3 +11,16 @@
 Փոփոխականները, ֆունկցիաները և դասերի սեփական մեթոդներն ունեն իմաստալից անուններ, այլ ոչ թե a, b, c, d:
 Դասերը և մեթոդները/գործառույթները ունեն գրավոր փաստաթղթեր:
 """
+
+
+class MyDict(dict):
+    def get(self, key, default=0):
+        if key not in self:
+            return default
+        else:
+            return super().get(key)
+
+
+mydict = MyDict()
+mydict.update({'a': 1, 'b': 2})
+print(mydict.get('c'))

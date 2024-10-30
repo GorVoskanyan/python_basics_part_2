@@ -46,3 +46,47 @@ print(manager)
 Փոփոխականները, ֆունկցիաները և դասերի սեփական մեթոդներն ունեն իմաստալից անուններ, այլ ոչ թե a, b, c, d:
 Դասերը և մեթոդները/գործառույթները ունեն գրավոր փաստաթղթեր:
 """
+
+
+class Stack:
+    def __init__(self):
+        self.data = []
+
+    def add(self, elem):
+        self.data.append(elem)
+
+    def delete(self):
+        del self.data[-1]
+
+    def __str__(self):
+        self.data.sort()
+        res = ''
+        for priority, *task in self.data:
+            res += f"{priority} - {'; '.join(task)}\n"
+        return res
+
+class TaskManager:
+    def __init__(self):
+        self.stack = Stack()
+
+    def new_task(self, task, priority):
+        for item in self.stack.data:
+            if priority in item:
+                item.append(task)
+                break
+        else:
+            self.stack.add([priority, task])
+
+    def del_task(self):
+        self.stack.delete()
+
+manager = TaskManager()
+
+manager.new_task('մաքրել', 4)
+manager.new_task ('լվալ ամանները', 4)
+manager.new_task('հանգիստ', 1)
+manager.new_task('ուտել', 2)
+manager.new_task('անցնել աշխատանքային հանձնարարությանը', 2)
+
+manager.del_task()
+print(manager.stack)
