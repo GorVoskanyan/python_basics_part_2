@@ -1,0 +1,9 @@
+Python test 2:
+Calipso - 57%
+Edmond - 55%
+Rafo - 67%
+
+Python OOP:
+Calipso - 70%
+Edmond - 30%
+Rafo - 0%
